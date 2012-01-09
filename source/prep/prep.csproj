@@ -59,8 +59,12 @@
   <ItemGroup>
     <Compile Include="collections\Genre.cs" />
     <Compile Include="collections\Movie.cs" />
+    <Compile Include="collections\MovieCondition.cs" />
     <Compile Include="collections\MovieLibrary.cs" />
     <Compile Include="collections\ProductionStudio.cs" />
+    <Compile Include="collections\ReadOnlySetOf.cs" />
+    <Compile Include="utility\Condition.cs" />
+    <Compile Include="utility\EnumerableExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
