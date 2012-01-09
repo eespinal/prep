@@ -24,7 +24,7 @@ namespace prep.utility
 
     public IMatchAn<ItemToFind> not_equal_to(PropertyType value)
     {
-      throw new NotImplementedException();
+        return new LambdaMatcher<ItemToFind>(x => !equal_to(value).matches(x));
     }
   }
 }
