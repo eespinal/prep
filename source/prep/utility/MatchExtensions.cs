@@ -1,4 +1,6 @@
-﻿namespace prep.utility
+﻿using System;
+
+namespace prep.utility
 {
   public static class MatchExtensions
   {
@@ -6,5 +8,6 @@
     {
       return new OrMatch<Item>(left, right);
     }
+
   }
 }
