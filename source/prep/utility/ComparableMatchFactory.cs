@@ -37,12 +37,17 @@ namespace prep.utility
 
     public IMatchAn<ItemToFind> between(PropertyType start, PropertyType end)
     {
-      return create_using(new FallsInRange<PropertyType>(new InclusiveRange<PropertyType>(start, end)));
+        return create_using(new FallsInRange<PropertyType>(RangeFrom<PropertyType>.beginning_in(start).inclusive().up_to(end).inclusive()));
     }
 
     public IMatchAn<ItemToFind> greater_than(PropertyType value)
     {
-      throw new NotImplementedException();
+      return create_using(new FallsInRange<PropertyType>(RangeFrom<PropertyType>.beginning_in(value)));
+    }
+    
+    public IMatchAn<ItemToFind> less_than(PropertyType value)
+    {
+      return create_using(new FallsInRange<PropertyType>(RangeFrom<PropertyType>.beginning_in(value).with_no_lower_bound().inclusive()));
     }
 
     public IMatchAn<ItemToFind> create_using(Condition<ItemToFind> criteria)

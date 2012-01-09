@@ -81,6 +81,7 @@
     <Compile Include="utility\OrMatch.cs" />
     <Compile Include="utility\PropertyAccessor.cs" />
     <Compile Include="utility\PropertyMatch.cs" />
+    <Compile Include="utility\RangeFrom.cs" />
     <Compile Include="utility\Where.cs" />
   </ItemGroup>
   <ItemGroup>
