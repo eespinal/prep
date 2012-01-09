@@ -17,15 +17,16 @@ namespace prep.utility
 
     public static IMatchAn<ItemToFind> create_using<ItemToFind,PropertyType>(this FilteringExtensionPoint<ItemToFind,PropertyType> extension_point,IMatchAn<PropertyType> criteria)
     {
-      return new PropertyMatch<ItemToFind, PropertyType>(extension_point.accessor, criteria);
+        return extension_point.appropiate_matcher(new PropertyMatch<ItemToFind, PropertyType>(extension_point.accessor, criteria));
     }
 
-    public static IMatchAn<ItemToFind> falls_in<ItemToFind,PropertyType>(this FilteringExtensionPoint<ItemToFind,PropertyType> extension_point,Range<PropertyType> range ) where PropertyType : IComparable<PropertyType>
+      public static IMatchAn<ItemToFind> falls_in<ItemToFind,PropertyType>(this FilteringExtensionPoint<ItemToFind,PropertyType> extension_point,Range<PropertyType> range ) where PropertyType : IComparable<PropertyType>
     {
       return
         create_using(extension_point,
           new FallsInRange<PropertyType>(range));
     }
+
 
   }
 }
