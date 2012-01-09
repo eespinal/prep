@@ -1,7 +1,7 @@
 configs ={
   :git => {
     :user => "20120109intellisys",
-    :remotes => potentially_change("remotes",__FILE__),
+    :remotes => %w[sramirez4 jorfx jzabala augustointellisys carlosjln kakusio jeortiz lalmanzar esantelises eespinal josercruz01 manuelcerda rlantigua jdelacruz sosue812],
     :repo => 'prep' 
   }
 }
