@@ -39,12 +39,12 @@ namespace prep.utility
             return greater_or_equal_to(start).and(smaller_or_equal_to(end));
         }
 
-        IMatchAn<ItemToFind> smaller_or_equal_to(PropertyType end)
+        public IMatchAn<ItemToFind> smaller_or_equal_to(PropertyType end)
         {
             return smaller_than(end).or(equal_to(end));
         }
 
-        IMatchAn<ItemToFind> greater_or_equal_to(PropertyType start)
+        public IMatchAn<ItemToFind> greater_or_equal_to(PropertyType start)
         {
             return greater_than(start).or(equal_to(start));
         }
