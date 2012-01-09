@@ -13,7 +13,7 @@ namespace prep.utility
 
     public IMatchAn<ItemToFind> greater_than(PropertyType value)
     {
-      throw new NotImplementedException();
+      return new LambdaMatcher<ItemToFind>(x => accessor(x).CompareTo(value) > 0);
     }
   }
 }
