@@ -71,6 +71,7 @@
     <Compile Include="utility\LambdaMatcher.cs" />
     <Compile Include="utility\MatchExtensions.cs" />
     <Compile Include="utility\MatchFactory.cs" />
+    <Compile Include="utility\NeverMatches.cs" />
     <Compile Include="utility\OrMatch.cs" />
     <Compile Include="utility\PropertyAccessor.cs" />
     <Compile Include="utility\Where.cs" />

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace prep.utility
 {
@@ -13,20 +14,17 @@ namespace prep.utility
 
     public IMatchAn<ItemToFind> equal_to(PropertyType value)
     {
-      return new LambdaMatcher<ItemToFind>(x => accessor(x).Equals(value));
+      return equal_to_any(value);
     }
 
     public IMatchAn<ItemToFind> equal_to_any(params PropertyType[] values)
     {
-        return new LambdaMatcher<ItemToFind>(x=>
-                                                 {
-                                                     foreach (var propertyType in values)
-                                                     {
-                                                         if (equal_to(propertyType).matches(x))
-                                                             return true;
-                                                     }
-                                                     return false;
-                                                 });
+      return new LambdaMatcher<ItemToFind>(x => new List<PropertyType>(values).Contains(accessor(x)));
+    }
+
+    public IMatchAn<ItemToFind> not_equal_to(PropertyType value)
+    {
+      throw new NotImplementedException();
     }
   }
 }
