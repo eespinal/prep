@@ -16,7 +16,7 @@ namespace prep.utility
 
         public IMatchAn<ItemToFind> greater_than(PropertyType value)
         {
-            return new LambdaMatcher<ItemToFind>(x => accessor(x).CompareTo(value) > 0);
+            return LambdaMatcher<ItemToFind>.getMeALambdaMatcher(x => accessor(x).CompareTo(value) > 0);
         }
 
         public IMatchAn<ItemToFind> equal_to(PropertyType value)
@@ -51,7 +51,7 @@ namespace prep.utility
 
         public IMatchAn<ItemToFind> smaller_than(PropertyType value)
         {
-            return new LambdaMatcher<ItemToFind>(x => accessor(x).CompareTo(value) < 0);
+            return LambdaMatcher<ItemToFind>.getMeALambdaMatcher(x => accessor(x).CompareTo(value) < 0);
         }
     }
 }

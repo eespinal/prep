@@ -13,5 +13,10 @@ namespace prep.utility
     {
       return criteria(item);
     }
+
+    public static LambdaMatcher<Item> getMeALambdaMatcher(Condition<Item> criteria)
+    {
+        return new LambdaMatcher<Item>(criteria);
+    }
   }
 }

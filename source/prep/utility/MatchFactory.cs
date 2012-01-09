@@ -18,7 +18,7 @@ namespace prep.utility
 
     public IMatchAn<ItemToFind> equal_to_any(params PropertyType[] values)
     {
-      return new LambdaMatcher<ItemToFind>(x => new List<PropertyType>(values).Contains(accessor(x)));
+        return LambdaMatcher<ItemToFind>.getMeALambdaMatcher(x => new List<PropertyType>(values).Contains(accessor(x)));
     }
 
     public IMatchAn<ItemToFind> not_equal_to(PropertyType value)
