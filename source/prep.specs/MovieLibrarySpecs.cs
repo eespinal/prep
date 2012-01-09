@@ -205,8 +205,9 @@ namespace prep.specs
 
       It should_be_able_to_find_all_movies_published_by_pixar = () =>
       {
-          var results = sut.all_movies().all_items_matching(new LambdaMatcher<Movie>(x => x.title.StartsWith("A")));
-//        var results = sut.all_movies().all_items_matching(Movie.is_published_by(ProductionStudio.Pixar));
+        var criteria = Where<Movie>.has_a(x => x.production_studio).equal_to(ProductionStudio.Pixar);
+
+        var results = sut.all_movies().all_items_matching(criteria);
 
         results.ShouldContainOnly(cars, a_bugs_life);
       };

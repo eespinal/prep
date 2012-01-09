@@ -14,7 +14,7 @@ namespace prep.utility
       return items.all_items_matching(criteria.matches);
     }
 
-    static IEnumerable<T> all_items_matching<T>(this IEnumerable<T> items, Condition<T> condition)
+    public static IEnumerable<T> all_items_matching<T>(this IEnumerable<T> items, Condition<T> condition)
     {
       foreach (var item in items)
       {
