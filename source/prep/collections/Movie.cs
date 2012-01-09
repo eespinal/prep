@@ -1,4 +1,5 @@
 using System;
+using prep.utility;
 
 namespace prep.collections
 {
@@ -9,6 +10,7 @@ namespace prep.collections
     public Genre genre { get; set; }
     public int rating { get; set; }
     public DateTime date_published { get; set; }
+    DateTime published { get; set; }
 
     public override bool Equals(object obj)
     {
@@ -22,7 +24,17 @@ namespace prep.collections
 
     public bool Equals(Movie other)
     {
-      return other != null && (ReferenceEquals(this,other) || other.title == title);
+      return other != null && (ReferenceEquals(this, other) || other.title == title);
+    }
+
+    public static IMatchAn<Movie> is_in_genre(Genre genre)
+    {
+      return new IsInGenre(genre);
+    }
+
+    public static IMatchAn<Movie> is_published_by(ProductionStudio studio)
+    {
+      return new IsPublishedBy(studio);
     }
   }
 }

@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="collections\Genre.cs" />
+    <Compile Include="collections\IsInGenre.cs" />
+    <Compile Include="collections\IsPublishedBy.cs" />
     <Compile Include="collections\Movie.cs" />
     <Compile Include="collections\MovieCondition.cs" />
     <Compile Include="collections\MovieLibrary.cs" />
@@ -65,6 +67,9 @@
     <Compile Include="collections\ReadOnlySetOf.cs" />
     <Compile Include="utility\Condition.cs" />
     <Compile Include="utility\EnumerableExtensions.cs" />
+    <Compile Include="utility\IMatchAn.cs" />
+    <Compile Include="utility\MatchExtensions.cs" />
+    <Compile Include="utility\OrMatch.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

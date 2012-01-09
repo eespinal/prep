@@ -44,6 +44,42 @@ namespace prep.collections
       return movies.Contains(movie);
     }
 
+    public bool is_published_by_pixar(Movie movie)
+    {
+      return movie.production_studio == ProductionStudio.Pixar;
+    }
+
+
+    public IEnumerable<Movie> all_movies_published_by_pixar_or_disney()
+    {
+      return movies.all_items_matching((x) => x.production_studio == ProductionStudio.Pixar || x.production_studio == ProductionStudio.Disney);
+    }
+
+    public IEnumerable<Movie> all_movies_not_published_by_pixar()
+    {
+      return movies.all_items_matching(x => x.production_studio != ProductionStudio.Pixar);
+    }
+
+    public IEnumerable<Movie> all_movies_published_after(int year)
+    {
+        return movies.all_items_matching(x => x.date_published.Year > year);
+    }
+
+    public IEnumerable<Movie> all_movies_published_between_years(int startingYear, int endingYear)
+    {
+        return movies.all_items_matching(x => startingYear <= x.date_published.Year && x.date_published.Year <= endingYear);
+    }
+
+    public IEnumerable<Movie> all_kid_movies()
+    {
+        return movies.all_items_matching(x => x.genre == Genre.kids);
+    }
+
+    public IEnumerable<Movie> all_action_movies()
+    {
+        return movies.all_items_matching(x => x.genre == Genre.action);
+    }
+
     public IEnumerable<Movie> sort_all_movies_by_title_descending()
     {
       var moviesList = (List<Movie>) movies;
@@ -51,26 +87,24 @@ namespace prep.collections
       return moviesList;
     }
 
-    public bool is_published_by_pixar(Movie movie)
+    public IEnumerable<Movie> sort_all_movies_by_date_published_descending()
     {
-      return movie.production_studio == ProductionStudio.Pixar;
-    }
-
-    public IEnumerable<Movie> all_movies_published_by_pixar()
-    {
-      return movies.all_matching((x) => x.production_studio == ProductionStudio.Pixar);
-    }
-
-
-    public IEnumerable<Movie> all_movies_published_by_pixar_or_disney()
-    {
-      return movies.all_matching((x) => x.production_studio == ProductionStudio.Pixar || x.production_studio == ProductionStudio.Disney);
+      var moviesList = (List<Movie>) movies;
+      moviesList.Sort((x, y) => y.date_published.CompareTo(x.date_published));
+      return moviesList;
     }
 
     public IEnumerable<Movie> sort_all_movies_by_title_ascending()
     {
       var moviesList = (List<Movie>) movies;
       moviesList.Sort((x, y) => x.title.CompareTo(y.title));
+      return moviesList;
+    }
+
+    public IEnumerable<Movie> sort_all_movies_by_date_published_ascending()
+    {
+      var moviesList = (List<Movie>) movies;
+      moviesList.Sort((x, y) => x.date_published.CompareTo(y.date_published));
       return moviesList;
     }
 
@@ -84,45 +118,6 @@ namespace prep.collections
           comparissonIndex = x.date_published.Year.CompareTo(y.date_published.Year);
         return comparissonIndex;
       });
-      return moviesList;
-    }
-
-    public IEnumerable<Movie> all_movies_not_published_by_pixar()
-    {
-      return movies.all_matching(x => x.production_studio != ProductionStudio.Pixar);
-    }
-
-    public IEnumerable<Movie> all_movies_published_after(int year)
-    {
-        return movies.all_matching(x => x.date_published.Year > year);
-    }
-
-    public IEnumerable<Movie> all_movies_published_between_years(int startingYear, int endingYear)
-    {
-        return movies.all_matching(x => startingYear <= x.date_published.Year && x.date_published.Year <= endingYear);
-    }
-
-    public IEnumerable<Movie> all_kid_movies()
-    {
-        return movies.all_matching(x => x.genre == Genre.kids);
-    }
-
-    public IEnumerable<Movie> all_action_movies()
-    {
-        return movies.all_matching(x => x.genre == Genre.action);
-    }
-
-    public IEnumerable<Movie> sort_all_movies_by_date_published_descending()
-    {
-      var moviesList = (List<Movie>) movies;
-      moviesList.Sort((x, y) => y.date_published.CompareTo(x.date_published));
-      return moviesList;
-    }
-
-    public IEnumerable<Movie> sort_all_movies_by_date_published_ascending()
-    {
-      var moviesList = (List<Movie>) movies;
-      moviesList.Sort((x, y) => x.date_published.CompareTo(y.date_published));
       return moviesList;
     }
   }
