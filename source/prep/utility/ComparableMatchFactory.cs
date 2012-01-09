@@ -1,35 +1,43 @@
 ﻿using System;
+using prep.collections;
 
 namespace prep.utility
-{    
+{
   public class ComparableMatchFactory<ItemToFind, PropertyType> where PropertyType : IComparable<PropertyType>
   {
-    IMatchFactory<ItemToFind, PropertyType> factory;
+    ICreateMatchers<ItemToFind, PropertyType> factory;
     PropertyAccessor<ItemToFind, PropertyType> accessor;
 
-    public ComparableMatchFactory(PropertyAccessor<ItemToFind, PropertyType> accessor)
+    public ComparableMatchFactory(PropertyAccessor<ItemToFind, PropertyType> accessor,
+                                  ICreateMatchers<ItemToFind, PropertyType> original)
     {
       this.accessor = accessor;
-      factory = new MatchFactory<ItemToFind, PropertyType>(accessor);
+      factory = original;
     }
 
     public IMatchAn<ItemToFind> greater_than(PropertyType value)
     {
       return new LambdaMatcher<ItemToFind>(x => accessor(x).CompareTo(value) > 0);
     }
+
     public IMatchAn<ItemToFind> equal_to(PropertyType value)
     {
-        return factory.equal_to(value);
+      return factory.equal_to(value);
     }
 
     public IMatchAn<ItemToFind> equal_to_any(params PropertyType[] values)
     {
-        return factory.equal_to_any(values);
+      return factory.equal_to_any(values);
     }
 
     public IMatchAn<ItemToFind> not_equal_to(PropertyType value)
     {
-        return factory.not_equal_to(value);
+      return factory.not_equal_to(value);
+    }
+
+    public IMatchAn<ItemToFind> between(PropertyType start,PropertyType end)
+    {
+      throw new NotImplementedException();
     }
   }
 }

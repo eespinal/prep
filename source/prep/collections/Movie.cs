@@ -27,14 +27,5 @@ namespace prep.collections
       return other != null && (ReferenceEquals(this, other) || other.title == title);
     }
 
-    public static IMatchAn<Movie> is_in_genre(Genre genre)
-    {
-      return new IsInGenre(genre);
-    }
-
-    public static IMatchAn<Movie> is_published_by(ProductionStudio studio)
-    {
-      return new IsPublishedBy(studio);
-    }
   }
 }

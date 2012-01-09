@@ -1,16 +1,8 @@
 using System.Collections.Generic;
-using prep.collections;
 
 namespace prep.utility
 {
-    public interface IMatchFactory<ItemToFind, PropertyType>
-    {
-        IMatchAn<ItemToFind> equal_to(PropertyType value);
-        IMatchAn<ItemToFind> equal_to_any(params PropertyType[] values);
-        IMatchAn<ItemToFind> not_equal_to(PropertyType value);
-    }
-
-    public class MatchFactory<ItemToFind, PropertyType> : IMatchFactory<ItemToFind, PropertyType>
+  public class MatchFactory<ItemToFind, PropertyType> : ICreateMatchers<ItemToFind, PropertyType>
   {
     PropertyAccessor<ItemToFind, PropertyType> accessor;
 
