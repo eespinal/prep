@@ -1,5 +1,4 @@
 using System;
-using prep.utility;
 
 namespace prep.collections
 {
@@ -26,6 +25,5 @@ namespace prep.collections
     {
       return other != null && (ReferenceEquals(this, other) || other.title == title);
     }
-
   }
 }
