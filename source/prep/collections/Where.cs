@@ -1,4 +1,5 @@
 ﻿using System;
+using prep.utility;
 
 namespace prep.collections
 {
@@ -9,4 +10,12 @@ namespace prep.collections
       return func;
     }
   }
+    public static class Helpers
+    {
+        public static IMatchAn<Movie> equal_to(this Func<Movie, ProductionStudio> func, ProductionStudio pixar)
+        {
+            return new LambdaMatcher<Movie>(x=>func(x)==pixar);
+        }
+        
+    }
 }
