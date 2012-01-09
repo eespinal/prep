@@ -18,7 +18,15 @@ namespace prep.utility
 
     public IMatchAn<ItemToFind> equal_to_any(params PropertyType[] values)
     {
-      throw new NotImplementedException();
+        return new LambdaMatcher<ItemToFind>(x=>
+                                                 {
+                                                     foreach (var propertyType in values)
+                                                     {
+                                                         if (equal_to(propertyType).matches(x))
+                                                             return true;
+                                                     }
+                                                     return false;
+                                                 });
     }
   }
 }
