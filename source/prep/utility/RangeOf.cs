@@ -3,19 +3,19 @@ using prep.ranges;
 
 namespace prep.utility
 {
-    public class RangeFrom<PropertyType> where PropertyType : IComparable<PropertyType>
+    public class RangeOf<PropertyType> where PropertyType : IComparable<PropertyType>
     {
-        public static ExclusiveRange<PropertyType> beginning_in(PropertyType start)
+        public static RangeBuilder<PropertyType> greater_than(PropertyType start)
         {
-            return new ExclusiveRange<PropertyType>(start);
+            return new RangeBuilder<PropertyType>(start);
         }
     }
 
-    public class ExclusiveRange<PropertyType> : Range<PropertyType> where PropertyType : IComparable<PropertyType>
+    public class RangeBuilder<PropertyType> : Range<PropertyType> where PropertyType : IComparable<PropertyType>
     {
         private readonly PropertyType _start;
 
-        public ExclusiveRange(PropertyType start)
+        public RangeBuilder(PropertyType start)
         {
             _start = start;
         }
