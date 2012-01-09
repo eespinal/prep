@@ -68,6 +68,7 @@
     <Compile Include="utility\Condition.cs" />
     <Compile Include="utility\EnumerableExtensions.cs" />
     <Compile Include="utility\IMatchAn.cs" />
+    <Compile Include="utility\LambdaMatcher.cs" />
     <Compile Include="utility\MatchExtensions.cs" />
     <Compile Include="utility\OrMatch.cs" />
   </ItemGroup>

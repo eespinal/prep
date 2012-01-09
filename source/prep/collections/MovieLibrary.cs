@@ -49,7 +49,6 @@ namespace prep.collections
       return movie.production_studio == ProductionStudio.Pixar;
     }
 
-
     public IEnumerable<Movie> all_movies_published_by_pixar_or_disney()
     {
       return movies.all_items_matching((x) => x.production_studio == ProductionStudio.Pixar || x.production_studio == ProductionStudio.Disney);
