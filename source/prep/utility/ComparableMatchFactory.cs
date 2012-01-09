@@ -37,7 +37,12 @@ namespace prep.utility
 
     public IMatchAn<ItemToFind> between(PropertyType start,PropertyType end)
     {
-      throw new NotImplementedException();
+        return greater_than(start).or(equal_to(start)).and(smaller_than(end).or(equal_to(end)));
+    }
+
+    public IMatchAn<ItemToFind> smaller_than(PropertyType value)
+    {
+        return new LambdaMatcher<ItemToFind>(x => accessor(x).CompareTo(value) < 0);
     }
   }
 }
