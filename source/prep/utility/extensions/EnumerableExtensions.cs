@@ -1,7 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using prep.utility.filtering;
+using prep.utility.filtering.core;
+using prep.utility.filtering.extension_points;
+using prep.utility.filtering.matchers;
 
-namespace prep.utility
+namespace prep.utility.extensions
 {
   public static class EnumerableExtensions
   {

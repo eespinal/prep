@@ -1,4 +1,7 @@
-﻿namespace prep.utility
+﻿using prep.utility.filtering.core;
+using prep.utility.filtering.matchers;
+
+namespace prep.utility.filtering.extensions
 {
   public static class MatchExtensions
   {

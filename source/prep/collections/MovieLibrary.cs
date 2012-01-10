@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using prep.utility;
+using prep.utility.extensions;
+using prep.utility.filtering;
 
 namespace prep.collections
 {

@@ -1,7 +1,10 @@
 ﻿using System;
 using prep.ranges;
+using prep.utility.filtering.core;
+using prep.utility.filtering.extension_points;
+using prep.utility.filtering.matchers;
 
-namespace prep.utility
+namespace prep.utility.filtering.extensions
 {
   public static class FilteringExtensions
   {

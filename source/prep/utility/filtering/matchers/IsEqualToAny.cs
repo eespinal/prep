@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using prep.utility.filtering.core;
 
-namespace prep.utility
+namespace prep.utility.filtering.matchers
 {
   public class IsEqualToAny<T> : IMatchAn<T>
   {

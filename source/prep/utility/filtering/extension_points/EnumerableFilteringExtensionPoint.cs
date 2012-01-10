@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
+using prep.utility.extensions;
+using prep.utility.filtering.core;
+using prep.utility.filtering.extensions;
+using prep.utility.filtering.matchers;
 
-namespace prep.utility
+namespace prep.utility.filtering.extension_points
 {
   public class EnumerableFilteringExtensionPoint<ItemToFilter,PropertyType> : IProvideAccessToFiltering<ItemToFilter,PropertyType,IEnumerable<ItemToFilter>>
   {

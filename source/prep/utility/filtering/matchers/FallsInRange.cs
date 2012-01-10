@@ -1,7 +1,8 @@
 ﻿using System;
 using prep.ranges;
+using prep.utility.filtering.core;
 
-namespace prep.utility
+namespace prep.utility.filtering.matchers
 {
   public class FallsInRange<T> : IMatchAn<T> where T : IComparable<T>
   {

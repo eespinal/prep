@@ -1,7 +1,7 @@
 ﻿using System;
 using prep.ranges;
 
-namespace prep.utility
+namespace prep.utility.ranges
 {
     public class RangeOf<PropertyType> where PropertyType : IComparable<PropertyType>
     {

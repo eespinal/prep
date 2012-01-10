@@ -1,4 +1,6 @@
-namespace prep.utility
+using prep.utility.filtering.core;
+
+namespace prep.utility.filtering.matchers
 {
     public class AndMatch<Item> : IMatchAn<Item>
     {

@@ -1,4 +1,6 @@
-namespace prep.utility
+using prep.utility.filtering.extension_points;
+
+namespace prep.utility.filtering.core
 {
   public class Where<ItemToFind>
   {
