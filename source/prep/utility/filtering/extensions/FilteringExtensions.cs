@@ -1,8 +1,9 @@
 ﻿using System;
-using prep.ranges;
 using prep.utility.filtering.core;
 using prep.utility.filtering.extension_points;
 using prep.utility.filtering.matchers;
+using prep.utility.ranges;
+using prep.utility.ranges.core;
 
 namespace prep.utility.filtering.extensions
 {

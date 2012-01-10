@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace prep.ranges
+namespace prep.utility.ranges.core
 {
   public interface Range<T> where T : IComparable<T>
   {

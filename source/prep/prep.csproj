@@ -63,8 +63,9 @@
     <Compile Include="collections\MovieLibrary.cs" />
     <Compile Include="collections\ProductionStudio.cs" />
     <Compile Include="collections\ReadOnlySetOf.cs" />
-    <Compile Include="ranges\InclusiveRange.cs" />
-    <Compile Include="ranges\Range.cs" />
+    <Compile Include="utility\ranges\ExclusiveWithNoLowerBoundRange.cs" />
+    <Compile Include="utility\ranges\InclusiveRange.cs" />
+    <Compile Include="utility\ranges\core\Range.cs" />
     <Compile Include="utility\filtering\matchers\AndMatch.cs" />
     <Compile Include="utility\filtering\core\Condition.cs" />
     <Compile Include="utility\filtering\extensions\DateFilteringExtensions.cs" />
@@ -84,8 +85,10 @@
     <Compile Include="utility\filtering\matchers\OrMatch.cs" />
     <Compile Include="utility\PropertyAccessor.cs" />
     <Compile Include="utility\PropertyMatch.cs" />
+    <Compile Include="utility\ranges\RangeBuilder.cs" />
     <Compile Include="utility\ranges\RangeOf.cs" />
     <Compile Include="utility\filtering\core\Where.cs" />
+    <Compile Include="utility\ranges\UpToRangeInclusive.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

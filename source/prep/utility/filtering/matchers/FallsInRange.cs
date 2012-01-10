@@ -1,6 +1,7 @@
 ﻿using System;
-using prep.ranges;
 using prep.utility.filtering.core;
+using prep.utility.ranges;
+using prep.utility.ranges.core;
 
 namespace prep.utility.filtering.matchers
 {
