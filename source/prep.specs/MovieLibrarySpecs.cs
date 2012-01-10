@@ -332,8 +332,8 @@ namespace prep.specs
         //Disney
         //Paramount
         var comparer = Sort<Movie>.by(x => x.production_studio,
-                                      ProductionStudio.Pixar,
                                       ProductionStudio.MGM,
+                                      ProductionStudio.Pixar,
                                       ProductionStudio.Dreamworks,
                                       ProductionStudio.Universal,
                                       ProductionStudio.Disney,
