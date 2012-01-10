@@ -72,9 +72,11 @@
     <Compile Include="utility\FilteringExtensionPoint.cs" />
     <Compile Include="utility\FilteringExtensions.cs" />
     <Compile Include="utility\IMatchAn.cs" />
+    <Compile Include="utility\IProvideAccessToFiltering.cs" />
     <Compile Include="utility\IsEqualToAny.cs" />
     <Compile Include="utility\LambdaMatcher.cs" />
     <Compile Include="utility\MatchExtensions.cs" />
+    <Compile Include="utility\NegatingFilteringExtensionPoint.cs" />
     <Compile Include="utility\NegatingMatch.cs" />
     <Compile Include="utility\NeverMatches.cs" />
     <Compile Include="utility\OrMatch.cs" />

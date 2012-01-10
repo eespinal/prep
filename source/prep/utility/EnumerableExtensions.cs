@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace prep.utility
 {
@@ -12,6 +13,11 @@ namespace prep.utility
     public static IEnumerable<T> all_items_matching<T>(this IEnumerable<T> items, IMatchAn<T> criteria)
     {
       return items.all_items_matching(criteria.matches);
+    }
+
+    public static Something where<ItemToFilter,PropertyType>(this IEnumerable<T > items,PropertyAccessor<ItemToFilter,PropertyType> accessor  )
+    {
+      throw new NotImplementedException();
     }
 
     public static IEnumerable<T> all_items_matching<T>(this IEnumerable<T> items, Condition<T> condition)

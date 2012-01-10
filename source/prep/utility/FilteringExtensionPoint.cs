@@ -1,28 +1,25 @@
 ﻿namespace prep.utility
 {
-  public class FilteringExtensionPoint<ItemToFilter,PropertyType>
+  public class FilteringExtensionPoint<ItemToFilter, PropertyType> : IProvideAccessToFiltering<ItemToFilter, PropertyType>
   {
-      private bool is_negated;
-      public PropertyAccessor<ItemToFilter, PropertyType> accessor { get; private set; }
+    PropertyAccessor<ItemToFilter, PropertyType> accessor;
 
     public FilteringExtensionPoint(PropertyAccessor<ItemToFilter, PropertyType> accessor)
     {
       this.accessor = accessor;
-
     }
-      public IMatchAn<ItemToFilter> appropiate_matcher(IMatchAn<ItemToFilter> matcher)
-      {
-          return is_negated ? new NegatingMatch<ItemToFilter>(matcher) : matcher;
-      }
 
-      public IMatchAn<ItemToFilter> Matcher { get; private set; }
+    public IMatchAn<ItemToFilter> create_matcher(IMatchAn<PropertyType> criteria)
+    {
+      return new PropertyMatch<ItemToFilter, PropertyType>(accessor, criteria);
+    }
 
-      public FilteringExtensionPoint<ItemToFilter, PropertyType> not { 
-          get
+    public IProvideAccessToFiltering<ItemToFilter, PropertyType> not
+    {
+      get
       {
-          this.is_negated = true;
-          return this; 
+        return new NegatingFilteringExtensionPoint<ItemToFilter, PropertyType>(this);
       }
-      }
+    }
   }
 }

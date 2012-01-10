@@ -223,16 +223,14 @@ namespace prep.specs
 
       It should_be_able_to_find_all_movies_not_published_by_pixar = () =>
       {
-        var criteria = Where<Movie>.has_a(x => x.production_studio).not.equal_to(ProductionStudio.Pixar);
-
-        var results = sut.all_movies().all_items_matching(criteria);
+        var results = sut.all_movies().where(x => x.production_studio).not.equal_to(ProductionStudio.Pixar);
 
         results.ShouldNotContain(cars, a_bugs_life);
       };
 
       It should_be_able_to_find_all_movies_published_after_a_certain_year = () =>
       {
-        var criteria = Where<Movie>.has_a(x => x.date_published.Year).falls_in(RangeOf<int>.greater_than(2004));
+        var criteria = Where<Movie>.has_a(x => x.date_published).greater_than(2004);
 
         var results = sut.all_movies().all_items_matching(criteria);
 
@@ -241,7 +239,7 @@ namespace prep.specs
 
       It should_be_able_to_find_all_movies_published_between_a_certain_range_of_years = () =>
       {
-        var criteria = Where<Movie>.has_a(x => x.date_published.Year).falls_in(RangeOf<int>.greater_than(1982).inclusive().up_to(2003).inclusive());
+        var criteria = Where<Movie>.has_a(x => x.date_published.Year).that_falls_in(RangeOf<int>.greater_than(1982).inclusive().up_to(2003).inclusive());
 
         var results = sut.all_movies().all_items_matching(criteria);
 
