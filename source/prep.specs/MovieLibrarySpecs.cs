@@ -282,9 +282,8 @@ namespace prep.specs
 
       It should_be_able_to_sort_all_movies_by_title_descending = () =>
                                                                      {
-        var criteria = Sort<Movie>.by(x => x.title).descending();
+        var results = sut.all_movies().order_by_descending(x => x.title);
                                                                          
-        var results = sut.all_movies().sort_using(criteria);
 
         results.ShouldContainOnlyInOrder(theres_something_about_mary, the_ring, shrek,
                                          pirates_of_the_carribean, indiana_jones_and_the_temple_of_doom,
