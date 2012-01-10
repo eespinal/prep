@@ -280,8 +280,10 @@ namespace prep.specs
              * without the need for using explicit methods. For this exercise, no linq queries are allowed!!. */
 
       It should_be_able_to_sort_all_movies_by_title_descending = () =>
-      {
-        var results = sut.sort_all_movies_by_title_descending();
+                                                                     {
+        var criteria = Sort<Movie>.by(x => x.title).descending();
+                                                                         
+        var results = sut.all_movies().sort_using(criteria);
 
         results.ShouldContainOnlyInOrder(theres_something_about_mary, the_ring, shrek,
                                          pirates_of_the_carribean, indiana_jones_and_the_temple_of_doom,
@@ -290,7 +292,9 @@ namespace prep.specs
 
       It should_be_able_to_sort_all_movies_by_title_ascending = () =>
       {
-        var results = sut.sort_all_movies_by_title_ascending();
+          var criteria = Sort<Movie>.by(x => x.title);
+
+          var results = sut.all_movies().sort_using(criteria);
 
         results.ShouldContainOnlyInOrder(a_bugs_life, cars, indiana_jones_and_the_temple_of_doom,
                                          pirates_of_the_carribean, shrek, the_ring,

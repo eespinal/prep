@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using prep.utility.filtering.extension_points;
 
 namespace prep.utility.filtering.core
