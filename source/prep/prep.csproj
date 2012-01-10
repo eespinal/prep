@@ -64,7 +64,13 @@
     <Compile Include="collections\ProductionStudio.cs" />
     <Compile Include="collections\ReadOnlySetOf.cs" />
     <Compile Include="utility\extensions\CompareExtentions.cs" />
-    <Compile Include="utility\filtering\core\Sort.cs" />
+    <Compile Include="utility\sorting\CombinedComparer.cs" />
+    <Compile Include="utility\sorting\ComparerBuilder.cs" />
+    <Compile Include="utility\sorting\FixedComparer.cs" />
+    <Compile Include="utility\sorting\ComparableComparer.cs" />
+    <Compile Include="utility\sorting\PropertyComparer.cs" />
+    <Compile Include="utility\sorting\ReverseComparer.cs" />
+    <Compile Include="utility\sorting\Sort.cs" />
     <Compile Include="utility\ranges\ExclusiveWithNoLowerBoundRange.cs" />
     <Compile Include="utility\ranges\InclusiveRange.cs" />
     <Compile Include="utility\ranges\core\Range.cs" />

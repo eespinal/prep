@@ -1,13 +1,14 @@
-﻿using System;
-using prep.utility.filtering.core;
+﻿using System.Collections.Generic;
+using prep.utility.sorting;
 
 namespace prep.utility.extensions
 {
-    public static class CompareExtentions
+  public static class CompareExtentions
+  {
+    public static IComparer<ItemToSort> descending<ItemToSort>(
+      this IComparer<ItemToSort> comparer)
     {
-        public static IGenericComparer<ItemToSort,PropertyType> descending<ItemToSort,PropertyType> (this IGenericComparer<ItemToSort,PropertyType> comparer) where PropertyType : IComparable<PropertyType>
-        {
-            return new DescendingComparer<ItemToSort, PropertyType>(comparer.accessor);
-        }
+      return new ReverseComparer<ItemToSort>(comparer);
     }
+  }
 }
