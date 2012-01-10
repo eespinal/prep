@@ -15,9 +15,10 @@ namespace prep.utility
       return items.all_items_matching(criteria.matches);
     }
 
-    public static Something where<ItemToFilter,PropertyType>(this IEnumerable<T > items,PropertyAccessor<ItemToFilter,PropertyType> accessor  )
-    {
-      throw new NotImplementedException();
+    public static EnumerableFilteringExtensionPoint<ItemToFilter,PropertyType> where<ItemToFilter,PropertyType>(this IEnumerable<ItemToFilter> items,PropertyAccessor<ItemToFilter,PropertyType> accessor  ){
+
+      return new EnumerableFilteringExtensionPoint<ItemToFilter, PropertyType>(
+        Where<ItemToFilter>.has_a(accessor), items);
     }
 
     public static IEnumerable<T> all_items_matching<T>(this IEnumerable<T> items, Condition<T> condition)

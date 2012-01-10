@@ -1,17 +1,17 @@
 ﻿namespace prep.utility
 {
-  public class NegatingFilteringExtensionPoint<ItemToFind,PropertyType> : IProvideAccessToFiltering<ItemToFind,PropertyType>
+  public class NegatingFilteringExtensionPoint<ItemToFind,PropertyType> : IProvideAccessToFiltering<ItemToFind,PropertyType,IMatchAn<ItemToFind>>
   {
-    IProvideAccessToFiltering<ItemToFind, PropertyType> original;
+    IProvideAccessToFiltering<ItemToFind, PropertyType,IMatchAn<ItemToFind>> original;
 
-    public NegatingFilteringExtensionPoint(IProvideAccessToFiltering<ItemToFind, PropertyType> original)
+    public NegatingFilteringExtensionPoint(IProvideAccessToFiltering<ItemToFind, PropertyType,IMatchAn<ItemToFind>> original)
     {
       this.original = original;
     }
 
-    public IMatchAn<ItemToFind> create_matcher(IMatchAn<PropertyType> criteria)
+    public IMatchAn<ItemToFind> apply_criteria(IMatchAn<PropertyType> criteria)
     {
-      return original.create_matcher(criteria).not();
+      return original.apply_criteria(criteria).not();
     }
   }
 }

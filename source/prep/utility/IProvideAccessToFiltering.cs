@@ -1,7 +1,7 @@
 namespace prep.utility
 {
-  public interface IProvideAccessToFiltering<ItemToFilter, PropertyType>
+  public interface IProvideAccessToFiltering<ItemToFilter, PropertyType, out ReturnType>
   {
-    IMatchAn<ItemToFilter> create_matcher(IMatchAn<PropertyType> criteria);
+    ReturnType apply_criteria(IMatchAn<PropertyType> criteria);
   }
 }

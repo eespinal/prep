@@ -67,7 +67,9 @@
     <Compile Include="ranges\Range.cs" />
     <Compile Include="utility\AndMatch.cs" />
     <Compile Include="utility\Condition.cs" />
+    <Compile Include="utility\DateFilteringExtensions.cs" />
     <Compile Include="utility\EnumerableExtensions.cs" />
+    <Compile Include="utility\EnumerableFilteringExtensionPoint.cs" />
     <Compile Include="utility\FallsInRange.cs" />
     <Compile Include="utility\FilteringExtensionPoint.cs" />
     <Compile Include="utility\FilteringExtensions.cs" />
