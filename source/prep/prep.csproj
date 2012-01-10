@@ -77,7 +77,6 @@
     <Compile Include="utility\filtering\core\IMatchAn.cs" />
     <Compile Include="utility\filtering\core\IProvideAccessToFiltering.cs" />
     <Compile Include="utility\filtering\matchers\IsEqualToAny.cs" />
-    <Compile Include="utility\filtering\matchers\LambdaMatcher.cs" />
     <Compile Include="utility\filtering\extensions\MatchExtensions.cs" />
     <Compile Include="utility\filtering\extension_points\NegatingFilteringExtensionPoint.cs" />
     <Compile Include="utility\filtering\matchers\NegatingMatch.cs" />
