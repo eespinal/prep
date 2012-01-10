@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using prep.utility.filtering.core;
 using prep.utility.filtering.extension_points;
+using prep.utility.sorting;
 
 namespace prep.utility.extensions
 {
@@ -32,7 +33,7 @@ namespace prep.utility.extensions
             }
         }
 
-        static List<T> to_list<T>(this IEnumerable<T> items)
+      public static List<T> to_list<T>(this IEnumerable<T> items)
         {
             var list = new List<T>();
             list.AddRange(items);
@@ -44,6 +45,21 @@ namespace prep.utility.extensions
             var list = items.to_list();
             list.Sort(comparer);
             return list.one_at_a_time();
+        }
+
+        public static EnumerableComparedCollection<T> order_by_descending<T, PropertyType>(this IEnumerable<T> items, PropertyAccessor<T, PropertyType> accessor) where PropertyType : IComparable<PropertyType>
+        {
+          return new EnumerableComparedCollection<T>(items, new ComparerBuilder<T>(Sort<T>.by(accessor).descending()));
+        }
+
+        public static EnumerableComparedCollection<T> order_by<T, PropertyType>(this IEnumerable<T> items, PropertyAccessor<T, PropertyType> accessor) where PropertyType : IComparable<PropertyType>
+        {
+          return new EnumerableComparedCollection<T>(items, new ComparerBuilder<T>(Sort<T>.by(accessor)));
+        }
+
+        public static EnumerableComparedCollection<T> order_by<T, PropertyType>(this IEnumerable<T> items, PropertyAccessor<T, PropertyType> accessor, params PropertyType[] values)
+        {
+          return new EnumerableComparedCollection<T>(items, new ComparerBuilder<T>(Sort<T>.by(accessor, values)));
         }
     }
 }

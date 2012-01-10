@@ -64,6 +64,7 @@
     <Compile Include="collections\ProductionStudio.cs" />
     <Compile Include="collections\ReadOnlySetOf.cs" />
     <Compile Include="utility\extensions\CompareExtentions.cs" />
+    <Compile Include="utility\extensions\EnumerableComparedCollection.cs" />
     <Compile Include="utility\sorting\CombinedComparer.cs" />
     <Compile Include="utility\sorting\ComparerBuilder.cs" />
     <Compile Include="utility\sorting\FixedComparer.cs" />

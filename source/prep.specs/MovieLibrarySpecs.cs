@@ -281,8 +281,8 @@ namespace prep.specs
              * without the need for using explicit methods. For this exercise, no linq queries are allowed!!. */
 
       It should_be_able_to_sort_all_movies_by_title_descending = () =>
-                                                                     {
-        var results = sut.all_movies().order_by_descending(x => x.title);
+        {
+          var results = sut.all_movies().order_by_descending(x => x.title);
                                                                          
 
         results.ShouldContainOnlyInOrder(theres_something_about_mary, the_ring, shrek,
@@ -292,9 +292,7 @@ namespace prep.specs
 
       It should_be_able_to_sort_all_movies_by_title_ascending = () =>
       {
-          var criteria = Sort<Movie>.by(x => x.title);
-
-          var results = sut.all_movies().sort_using(criteria);
+          var results = sut.all_movies().order_by(x => x.title);
 
         results.ShouldContainOnlyInOrder(a_bugs_life, cars, indiana_jones_and_the_temple_of_doom,
                                          pirates_of_the_carribean, shrek, the_ring,
@@ -330,17 +328,12 @@ namespace prep.specs
         //Universal
         //Disney
         //Paramount
-        var comparer = Sort<Movie>.by(x => x.production_studio,
-                                      ProductionStudio.MGM,
+          var results = sut.all_movies().order_by(x => x.production_studio, ProductionStudio.MGM,
                                       ProductionStudio.Pixar,
                                       ProductionStudio.Dreamworks,
                                       ProductionStudio.Universal,
                                       ProductionStudio.Disney,
-                                      ProductionStudio.Paramount)
-          .then_by(x => x.date_published);
-
-
-          var results = sut.all_movies().sort_using(comparer);
+                                      ProductionStudio.Paramount).then_by(x => x.date_published);
         /* should return a set of results 
                  * in the collection sorted by the rating of the production studio (not the movie rating) and year published. for this exercise you need to take the studio ratings
                  * into effect, which means that you first have to sort by movie studio (taking the ranking into account) and then by the

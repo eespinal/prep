@@ -4,7 +4,19 @@ using prep.utility.extensions;
 
 namespace prep.utility.sorting
 {
-  public class ComparerBuilder<ItemToSort> : IComparer<ItemToSort>
+  public interface IComparerBuilder<ItemToSort, ReturnType>
+  {
+    ReturnType then_by<PropertyType>(PropertyAccessor<ItemToSort, PropertyType> accessor,
+                                                                      params PropertyType[] values);
+
+    ReturnType then_by_descending<PropertyType>(
+      PropertyAccessor<ItemToSort, PropertyType> accessor) where PropertyType : IComparable<PropertyType>;
+
+    ReturnType then_by<PropertyType>(PropertyAccessor<ItemToSort, PropertyType> accessor)
+      where PropertyType : IComparable<PropertyType>;
+  }
+
+  public class ComparerBuilder<ItemToSort> : IComparer<ItemToSort>, IComparerBuilder<ItemToSort,ComparerBuilder<ItemToSort>>
   {
     IComparer<ItemToSort> comparer;
 
