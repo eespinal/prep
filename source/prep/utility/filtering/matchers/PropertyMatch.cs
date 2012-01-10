@@ -1,8 +1,6 @@
-﻿using prep.utility.filtering;
-using prep.utility.filtering.core;
-using prep.utility.filtering.matchers;
+﻿using prep.utility.filtering.core;
 
-namespace prep.utility
+namespace prep.utility.filtering.matchers
 {
   public class PropertyMatch<ItemToMatch, PropertyType> : IMatchAn<ItemToMatch>
   {

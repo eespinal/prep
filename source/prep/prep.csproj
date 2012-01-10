@@ -84,10 +84,11 @@
     <Compile Include="utility\filtering\matchers\NeverMatches.cs" />
     <Compile Include="utility\filtering\matchers\OrMatch.cs" />
     <Compile Include="utility\PropertyAccessor.cs" />
-    <Compile Include="utility\PropertyMatch.cs" />
+    <Compile Include="utility\filtering\matchers\PropertyMatch.cs" />
     <Compile Include="utility\ranges\RangeBuilder.cs" />
-    <Compile Include="utility\ranges\RangeOf.cs" />
+    <Compile Include="utility\ranges\core\RangeOf.cs" />
     <Compile Include="utility\filtering\core\Where.cs" />
+    <Compile Include="utility\ranges\UpToRangeExclusive.cs" />
     <Compile Include="utility\ranges\UpToRangeInclusive.cs" />
   </ItemGroup>
   <ItemGroup>
