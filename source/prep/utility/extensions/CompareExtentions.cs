@@ -10,5 +10,11 @@ namespace prep.utility.extensions
     {
       return new ReverseComparer<ItemToSort>(comparer);
     }
+
+    public static IComparer<ItemToSort> combined_with<ItemToSort>(
+      this IComparer<ItemToSort> first_comparer,IComparer<ItemToSort> second_comparer)
+    {
+        return new CombinedComparer<ItemToSort>(first_comparer, second_comparer);
+    }
   }
 }

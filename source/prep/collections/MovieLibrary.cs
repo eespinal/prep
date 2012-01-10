@@ -52,45 +52,5 @@ namespace prep.collections
     }
 
 
-    public IEnumerable<Movie> sort_all_movies_by_title_descending()
-    {
-      var moviesList = (List<Movie>) movies;
-      moviesList.Sort((x, y) => y.title.CompareTo(x.title));
-      return moviesList;
-    }
-
-    public IEnumerable<Movie> sort_all_movies_by_date_published_descending()
-    {
-      var moviesList = (List<Movie>) movies;
-      moviesList.Sort((x, y) => y.date_published.CompareTo(x.date_published));
-      return moviesList;
-    }
-
-    public IEnumerable<Movie> sort_all_movies_by_title_ascending()
-    {
-      var moviesList = (List<Movie>) movies;
-      moviesList.Sort((x, y) => x.title.CompareTo(y.title));
-      return moviesList;
-    }
-
-    public IEnumerable<Movie> sort_all_movies_by_date_published_ascending()
-    {
-      var moviesList = (List<Movie>) movies;
-      moviesList.Sort((x, y) => x.date_published.CompareTo(y.date_published));
-      return moviesList;
-    }
-
-    public IEnumerable<Movie> sort_all_movies_by_movie_studio_and_year_published()
-    {
-      var moviesList = (List<Movie>) movies;
-      moviesList.Sort((x, y) =>
-      {
-        var comparissonIndex = studioRatings[y.production_studio].CompareTo(studioRatings[x.production_studio]);
-        if (comparissonIndex == 0)
-          comparissonIndex = x.date_published.Year.CompareTo(y.date_published.Year);
-        return comparissonIndex;
-      });
-      return moviesList;
-    }
   }
 }
